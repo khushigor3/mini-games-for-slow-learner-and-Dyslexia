@@ -17,3 +17,4 @@ This project is a collection of interactive mini-games designed for slow learner
 ## ▶️ How to Run
 1. Download the project
 2. Open index.html in browse
+
