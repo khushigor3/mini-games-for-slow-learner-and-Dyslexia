@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=OpenDyslexic:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #4A90E2; /* trustworthy-blue */
+  --color-primary-50: #EBF4FD; /* trustworthy-blue-50 */
+  --color-primary-100: #D7E9FB; /* trustworthy-blue-100 */
+  --color-primary-200: #B0D3F7; /* trustworthy-blue-200 */
+  --color-primary-300: #88BDF3; /* trustworthy-blue-300 */
+  --color-primary-400: #66A7ED; /* trustworthy-blue-400 */
+  --color-primary-500: #4A90E2; /* trustworthy-blue-500 */
+  --color-primary-600: #3B73B5; /* trustworthy-blue-600 */
+  --color-primary-700: #2C5688; /* trustworthy-blue-700 */
+  --color-primary-800: #1D395B; /* trustworthy-blue-800 */
+  --color-primary-900: #0E1C2E; /* trustworthy-blue-900 */
+
+  /* Secondary Colors */
+  --color-secondary: #7B68EE; /* gentle-purple */
+  --color-secondary-50: #F0EEFF; /* gentle-purple-50 */
+  --color-secondary-100: #E1DDFF; /* gentle-purple-100 */
+  --color-secondary-200: #C3BBFF; /* gentle-purple-200 */
+  --color-secondary-300: #A599FF; /* gentle-purple-300 */
+  --color-secondary-400: #9080F1; /* gentle-purple-400 */
+  --color-secondary-500: #7B68EE; /* gentle-purple-500 */
+  --color-secondary-600: #6253BE; /* gentle-purple-600 */
+  --color-secondary-700: #493E8E; /* gentle-purple-700 */
+  --color-secondary-800: #30295E; /* gentle-purple-800 */
+  --color-secondary-900: #18142F; /* gentle-purple-900 */
+
+  /* Accent Colors */
+  --color-accent: #FFB347; /* warm-orange */
+  --color-accent-50: #FFF8F0; /* warm-orange-50 */
+  --color-accent-100: #FFF1E1; /* warm-orange-100 */
+  --color-accent-200: #FFE3C3; /* warm-orange-200 */
+  --color-accent-300: #FFD5A5; /* warm-orange-300 */
+  --color-accent-400: #FFC466; /* warm-orange-400 */
+  --color-accent-500: #FFB347; /* warm-orange-500 */
+  --color-accent-600: #CC8F39; /* warm-orange-600 */
+  --color-accent-700: #996B2B; /* warm-orange-700 */
+  --color-accent-800: #66471D; /* warm-orange-800 */
+  --color-accent-900: #33240E; /* warm-orange-900 */
+
+  /* Background Colors */
+  --color-background: #FAFBFC; /* soft-white */
+  --color-surface: #F5F7FA; /* subtle-gray */
+
+  /* Text Colors */
+  --color-text-primary: #2C3E50; /* dark-slate */
+  --color-text-secondary: #6C7B7F; /* muted-gray */
+
+  /* Status Colors */
+  --color-success: #52C41A; /* encouraging-green */
+  --color-success-50: #F6FFED; /* encouraging-green-50 */
+  --color-success-100: #D9F7BE; /* encouraging-green-100 */
+  --color-success-200: #B7EB8F; /* encouraging-green-200 */
+  --color-success-300: #95DE64; /* encouraging-green-300 */
+  --color-success-400: #73D13D; /* encouraging-green-400 */
+  --color-success-500: #52C41A; /* encouraging-green-500 */
+  --color-success-600: #389E0D; /* encouraging-green-600 */
+  --color-success-700: #237804; /* encouraging-green-700 */
+  --color-success-800: #135200; /* encouraging-green-800 */
+  --color-success-900: #092B00; /* encouraging-green-900 */
+
+  --color-warning: #FAAD14; /* gentle-amber */
+  --color-warning-50: #FFFBE6; /* gentle-amber-50 */
+  --color-warning-100: #FFF1B8; /* gentle-amber-100 */
+  --color-warning-200: #FFE58F; /* gentle-amber-200 */
+  --color-warning-300: #FFD666; /* gentle-amber-300 */
+  --color-warning-400: #FFC53D; /* gentle-amber-400 */
+  --color-warning-500: #FAAD14; /* gentle-amber-500 */
+  --color-warning-600: #D48806; /* gentle-amber-600 */
+  --color-warning-700: #AD6800; /* gentle-amber-700 */
+  --color-warning-800: #874D00; /* gentle-amber-800 */
+  --color-warning-900: #613400; /* gentle-amber-900 */
+
+  --color-error: #FF7875; /* soft-coral */
+  --color-error-50: #FFF1F0; /* soft-coral-50 */
+  --color-error-100: #FFCCC7; /* soft-coral-100 */
+  --color-error-200: #FFA39E; /* soft-coral-200 */
+  --color-error-300: #FF7875; /* soft-coral-300 */
+  --color-error-400: #FF4D4F; /* soft-coral-400 */
+  --color-error-500: #FF7875; /* soft-coral-500 */
+  --color-error-600: #D9363E; /* soft-coral-600 */
+  --color-error-700: #B32029; /* soft-coral-700 */
+  --color-error-800: #8C1014; /* soft-coral-800 */
+  --color-error-900: #66080A; /* soft-coral-900 */
+
+  /* Border Colors */
+  --color-border: #E1E8ED; /* light-border */
+  --color-border-light: #F0F3F6; /* lighter-border */
+
+  /* Shadow Colors */
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-gentle: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Base styles for accessibility */
+@layer base {
+  * {
+    @apply transition-colors duration-300 ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      @apply transition-none;
+    }
+  }
+
+  body {
+    @apply font-lexend text-text-primary bg-background antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-opendyslexic;
+  }
+
+  button, .btn {
+    @apply font-nunito-sans;
+  }
+
+  .accent-text {
+    @apply font-comfortaa;
+  }
+}
+
+/* Component styles */
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-nunito-sans font-semibold;
+    @apply hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300;
+    @apply transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-lg font-nunito-sans font-semibold;
+    @apply hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-secondary-300;
+    @apply transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .card {
+    @apply bg-white rounded-lg p-6 border border-border;
+    box-shadow: var(--shadow-gentle);
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-border rounded-lg;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary;
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .game-card {
+    @apply bg-white rounded-xl p-6 border border-border;
+    @apply hover:shadow-lg hover:border-primary-200;
+    @apply transition-all duration-300 ease-out cursor-pointer;
+    box-shadow: var(--shadow-gentle);
+  }
+
+  .progress-bar {
+    @apply w-full bg-surface rounded-full h-3;
+  }
+
+  .progress-fill {
+    @apply bg-success h-3 rounded-full transition-all duration-500 ease-out;
+  }
+
+  .achievement-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-comfortaa;
+    @apply bg-accent-100 text-accent-700 border border-accent-200;
+  }
+
+  .alert-success {
+    @apply bg-success-50 border border-success-200 text-success-700 p-4 rounded-lg;
+  }
+
+  .alert-warning {
+    @apply bg-warning-50 border border-warning-200 text-warning-700 p-4 rounded-lg;
+  }
+
+  .alert-error {
+    @apply bg-error-50 border border-error-200 text-error-700 p-4 rounded-lg;
+  }
+}

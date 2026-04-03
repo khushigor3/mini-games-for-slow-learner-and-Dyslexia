@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindBridge Games - Individual Game Screens</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <meta name="description"
+        content="Immersive educational games designed for neurodivergent learners. Play memory games, word puzzles, and cognitive challenges in distraction-free environments.">
+
+    <script type="module"
+        src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fmindbridge3329back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+    <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+</head>
+
+<body class="bg-background min-h-screen">
+    <nav class="bg-white border-b border-border shadow-gentle sticky top-0 z-50" role="navigation"
+        aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-opendyslexic font-bold text-text-primary"><a
+                                href="individual_game_screens.html">MindBridge Games</a></h1>
+                        <p class="text-xs text-text-secondary font-lexend">Learning Through Play</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+
+                    <button id="themeToggle"
+                        class="p-2 rounded-lg bg-surface hover:bg-border transition-colors focus-ring"
+                        aria-label="Toggle dark mode">
+                        <svg id="themeIconSVG" class="w-5 h-5 text-text-secondary" fill="currentColor"
+                            viewBox="0 0 24 24" aria-hidden="true">
+                            <path id="themeIconPath"
+                                d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
+                        </svg>
+                    </button>
+
+                    <div class="flex items-center space-x-4">
+                        <a href="user_profile_dashboard.html"
+                            class="text-text-secondary hover:text-primary font-nunito-sans font-medium px-3 py-2 rounded-lg hover:bg-primary-50 transition-colors focus-ring">
+                            My Progress
+                        </a>
+                        <a href="settings_panel.html"
+                            class="text-text-secondary hover:text-primary font-nunito-sans font-medium px-3 py-2 rounded-lg hover:bg-primary-50 transition-colors focus-ring">
+                            Settings
+                        </a>
+                    </div>
+
+                    <button id="mobileMenuToggle"
+                        class="md:hidden p-2 rounded-lg bg-surface hover:bg-border transition-colors focus-ring"
+                        aria-label="Open mobile menu">
+                        <svg class="w-5 h-5 text-text-secondary" fill="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path d="M3 12h18m-9-9v18" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-border">
+            <div class="px-4 py-3 space-y-2">
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-white border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div>
+                        <h2 class="text-2xl font-opendyslexic font-bold text-text-primary">Choose Your Game</h2>
+                        <p class="text-sm text-text-secondary font-lexend">Select a game to start your learning
+                            adventure</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button id="helpToggle"
+                        class="p-2 rounded-lg bg-accent-100 text-accent-700 hover:bg-accent-200 transition-colors focus-ring"
+                        aria-label="Toggle help">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" id="gameSelectionGrid">
+            <div class="game-selection-card" data-game="memory-match" role="button" tabindex="0"
+                aria-label="Play Memory Match game">
+                <div
+                    class="relative overflow-hidden rounded-xl bg-primary-50 border-2 border-primary-200 hover:border-primary-400 transition-all duration-300 cursor-pointer group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-opendyslexic font-bold text-primary-700">Memory Match</h3>
+                            <p class="text-sm text-primary-600 font-lexend mt-1">Find matching pairs</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="achievement-badge">Easy</span>
+                            <div class="flex text-accent-400">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-selection-card" data-game="word-builder" role="button" tabindex="0"
+                aria-label="Play Word Builder game">
+                <div
+                    class="relative overflow-hidden rounded-xl bg-secondary-50 border-2 border-secondary-200 hover:border-secondary-400 transition-all duration-300 cursor-pointer group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-secondary-100 to-secondary-200 flex items-center justify-center">
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path d="M3 5h18v2H3V5zm0 6h18v2H3v-2zm0 6h18v2H3v-2z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-opendyslexic font-bold text-secondary-700">Word Builder</h3>
+                            <p class="text-sm text-secondary-600 font-lexend mt-1">Create words from tiles</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="inline-flex items-center px-3 py-1 rounded-full text-sm font-comfortaa bg-warning-100 text-warning-700 border border-warning-200">Medium</span>
+                            <div class="flex text-accent-400">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-selection-card" data-game="pattern-puzzle" role="button" tabindex="0"
+                aria-label="Play Pattern Puzzle game">
+                <div
+                    class="relative overflow-hidden rounded-xl bg-accent-50 border-2 border-accent-200 hover:border-accent-400 transition-all duration-300 cursor-pointer group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-accent-100 to-accent-200 flex items-center justify-center">
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-opendyslexic font-bold text-accent-700">Pattern Puzzle</h3>
+                            <p class="text-sm text-accent-600 font-lexend mt-1">Complete sequences</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="inline-flex items-center px-3 py-1 rounded-full text-sm font-comfortaa bg-warning-100 text-warning-700 border border-warning-200">Medium</span>
+                            <div class="flex text-accent-400">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-selection-card" data-game="number-sequence" role="button" tabindex="0"
+                aria-label="Play Number Sequence game">
+                <div
+                    class="relative overflow-hidden rounded-xl bg-success-50 border-2 border-success-200 hover:border-success-400 transition-all duration-300 cursor-pointer group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-success-100 to-success-200 flex items-center justify-center">
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-success rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-opendyslexic font-bold text-success-700">Number Sequence</h3>
+                            <p class="text-sm text-success-600 font-lexend mt-1">Find missing numbers</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="achievement-badge">Easy</span>
+                            <div class="flex text-accent-400">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-selection-card" data-game="shape-sorter" role="button" tabindex="0"
+                aria-label="Play Shape Sorter game">
+                <div
+                    class="relative overflow-hidden rounded-xl bg-warning-50 border-2 border-warning-200 hover:border-warning-400 transition-all duration-300 cursor-pointer group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-warning-100 to-warning-200 flex items-center justify-center">
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-warning rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-opendyslexic font-bold text-warning-700">Shape Sorter</h3>
+                            <p class="text-sm text-warning-600 font-lexend mt-1">Sort by attributes</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="achievement-badge">Easy</span>
+                            <div class="flex text-accent-400">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-selection-card" data-game="logic-ladder" role="button" tabindex="0"
+                aria-label="Play Logic Ladder game">
+                <div
+                    class="relative overflow-hidden rounded-xl bg-error-50 border-2 border-error-200 hover:border-error-400 transition-all duration-300 cursor-pointer group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-error-100 to-error-200 flex items-center justify-center">
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-error rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-opendyslexic font-bold text-error-700">Logic Ladder</h3>
+                            <p class="text-sm text-error-600 font-lexend mt-1">Advanced puzzles</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="inline-flex items-center px-3 py-1 rounded-full text-sm font-comfortaa bg-error-100 text-error-700 border border-error-200">Hard</span>
+                            <div class="flex text-accent-400">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gameInterface" class="hidden">
+            <div class="bg-white rounded-xl border border-border shadow-gentle mb-6">
+                <div class="flex items-center justify-between p-6">
+                    <div class="flex items-center space-x-4">
+                        <button id="backToSelection"
+                            class="p-2 rounded-lg hover:bg-surface transition-colors focus-ring"
+                            aria-label="Back to game selection">
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <div>
+                            <h3 id="currentGameTitle" class="text-2xl font-opendyslexic font-bold text-text-primary">
+                                Game Title</h3>
+                            <p id="currentGameDescription" class="text-sm text-text-secondary font-lexend">Game
+                                description</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-sm text-text-secondary font-lexend">Progress:</span>
+                            <div class="w-24 bg-surface rounded-full h-2">
+                                <div id="gameProgress" class="bg-success h-2 rounded-full transition-all duration-500"
+                                    style="width: 0%"></div>
+                            </div>
+                            <span id="progressText"
+                                class="text-sm font-nunito-sans font-semibold text-text-primary">0%</span>
+                        </div>
+                        <button id="pauseGame"
+                            class="p-2 rounded-lg bg-warning-100 text-warning-700 hover:bg-warning-200 transition-colors focus-ring"
+                            aria-label="Pause game">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                            </svg>
+                        </button>
+                        <button id="helpButton"
+                            class="p-2 rounded-lg bg-accent-100 text-accent-700 hover:bg-accent-200 transition-colors focus-ring"
+                            aria-label="Show help">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-border shadow-gentle overflow-hidden">
+                <div id="gameCanvas" class="min-h-[600px] p-8 bg-gradient-to-br from-surface to-white">
+                </div>
+            </div>
+
+            <div class="mt-6 bg-white rounded-xl border border-border shadow-gentle p-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-6">
+                        <div class="text-center">
+                            <p class="text-sm text-text-secondary font-lexend">Score</p>
+                            <p id="gameScore" class="text-2xl font-opendyslexic font-bold text-text-primary">0</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm text-text-secondary font-lexend">Time</p>
+                            <p id="gameTime" class="text-2xl font-opendyslexic font-bold text-text-primary">00:00</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm text-text-secondary font-lexend">Level</p>
+                            <p id="gameLevel" class="text-2xl font-opendyslexic font-bold text-text-primary">1</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <button id="restartGame" class="btn-secondary text-sm px-4 py-2">
+                            Restart
+                        </button>
+                        <button id="nextLevel" class="btn-primary text-sm px-4 py-2 hidden">
+                            Next Level
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="helpModal"
+        class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4"
+        role="dialog" aria-modal="true" aria-labelledby="help-modal-title">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h4 id="help-modal-title" class="text-2xl font-opendyslexic font-bold text-text-primary">Game Help
+                    </h4>
+                    <button id="closeHelpModal" class="p-2 rounded-lg hover:bg-surface transition-colors focus-ring"
+                        aria-label="Close help modal">
+                        <svg class="w-6 h-6 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div id="helpContent" class="space-y-4">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pauseModal"
+        class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4"
+        role="dialog" aria-modal="true" aria-labelledby="pause-modal-title">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl">
+            <div class="p-6 text-center">
+                <div class="w-16 h-16 bg-warning-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-warning-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                    </svg>
+                </div>
+                <h4 id="pause-modal-title" class="text-2xl font-opendyslexic font-bold text-text-primary mb-2">Game
+                    Paused</h4>
+                <p class="text-text-secondary font-lexend mb-6">Take your time! Resume when you're ready.</p>
+                <div class="flex space-x-3">
+                    <button id="resumeGame" class="btn-primary flex-1">
+                        Resume Game
+                    </button>
+                    <button id="quitGame" class="btn-secondary">
+                        Quit Game
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="successModal"
+        class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4"
+        role="dialog" aria-modal="true" aria-labelledby="success-modal-title">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl">
+            <div class="p-6 text-center">
+                <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-success-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h4 id="success-modal-title" class="text-2xl font-opendyslexic font-bold text-text-primary mb-2">Great
+                    Job! 🎉</h4>
+                <p id="successMessage" class="text-text-secondary font-lexend mb-6">You completed the level
+                    successfully!</p>
+                <div class="flex space-x-3">
+                    <button id="playAgain" class="btn-primary flex-1">
+                        Play Again
+                    </button>
+                    <button id="backToHub" class="btn-secondary">
+                        Back to Hub
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Game Engine Class
+        class GameEngine {
+            constructor() {
+                this.currentGame = null;
+                this.gameState = {
+                    score: 0,
+                    level: 1,
+                    time: 0,
+                    progress: 0,
+                    isPaused: false,
+                    isComplete: false
+                };
+                this.gameTimer = null;
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.loadGameSelection();
+            }
+
+            bindEvents() {
+                // Mobile menu toggle
+                document.getElementById('mobileMenuToggle').addEventListener('click', () => {
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                // Theme toggle
+                document.getElementById('themeToggle').addEventListener('click', () => {
+                    document.body.classList.toggle('dark-mode');
+                    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+                    updateThemeIcon(); // New line to switch icon
+                });
+
+
+                // Game selection
+                document.querySelectorAll('.game-selection-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        const gameType = card.dataset.game;
+                        this.startGame(gameType);
+                    });
+
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            const gameType = card.dataset.game;
+                            this.startGame(gameType);
+                        }
+                    });
+                });
+
+                // Game controls
+                document.getElementById('backToSelection').addEventListener('click', () => {
+                    this.showGameSelection();
+                });
+
+                document.getElementById('pauseGame').addEventListener('click', () => {
+                    this.pauseGame();
+                });
+
+                document.getElementById('helpButton').addEventListener('click', () => {
+                    this.showHelp();
+                });
+
+                document.getElementById('restartGame').addEventListener('click', () => {
+                    this.restartGame();
+                });
+
+                document.getElementById('nextLevel').addEventListener('click', () => {
+                    this.nextLevel();
+                });
+
+                // Modal controls
+                document.getElementById('closeHelpModal').addEventListener('click', () => {
+                    this.closeModal('helpModal');
+                });
+
+                document.getElementById('resumeGame').addEventListener('click', () => {
+                    this.resumeGame();
+                });
+
+                document.getElementById('quitGame').addEventListener('click', () => {
+                    this.quitGame();
+                });
+
+                document.getElementById('playAgain').addEventListener('click', () => {
+                    this.restartGame();
+                    this.closeModal('successModal');
+                });
+
+                document.getElementById('backToHub').addEventListener('click', () => {
+                    window.location.href = 'individual_game_screens.html';
+                });
+
+                // Help toggle
+                document.getElementById('helpToggle').addEventListener('click', () => {
+                    this.showHelp();
+                });
+            }
+
+            loadGameSelection() {
+                document.getElementById('gameSelectionGrid').classList.remove('hidden');
+                document.getElementById('gameInterface').classList.add('hidden');
+            }
+
+            showGameSelection() {
+                this.stopGame();
+                document.getElementById('gameSelectionGrid').classList.remove('hidden');
+                document.getElementById('gameInterface').classList.add('hidden');
+            }
+
+            startGame(gameType) {
+                this.currentGame = gameType;
+                this.resetGameState();
+                document.getElementById('gameSelectionGrid').classList.add('hidden');
+                document.getElementById('gameInterface').classList.remove('hidden');
+
+                this.loadGameInterface(gameType);
+                this.startGameTimer();
+            }
+
+            loadGameInterface(gameType) {
+                const games = {
+                    'memory-match': {
+                        title: 'Memory Match',
+                        description: 'Find matching pairs by flipping cards',
+                        help: 'Click on cards to flip them and find matching pairs. Remember where each card is located!'
+                    },
+                    'word-builder': {
+                        title: 'Word Builder',
+                        description: 'Create words from letter tiles',
+                        help: 'Drag letters to form words. Longer words give more points!'
+                    },
+                    'pattern-puzzle': {
+                        title: 'Pattern Puzzle',
+                        description: 'Complete the sequence patterns',
+                        help: 'Look for patterns in shapes, colors, or numbers and complete the sequence.'
+                    },
+                    'number-sequence': {
+                        title: 'Number Sequence',
+                        description: 'Find the missing numbers',
+                        help: 'Identify the pattern in the number sequence and fill in the missing numbers.'
+                    },
+                    'shape-sorter': {
+                        title: 'Shape Sorter',
+                        description: 'Sort shapes by their attributes',
+                        help: 'Group shapes by color, size, or type. Pay attention to the sorting criteria!'
+                    },
+                    'logic-ladder': {
+                        title: 'Logic Ladder',
+                        description: 'Solve step-by-step logic puzzles',
+                        help: 'Use logical reasoning to solve each step. Take your time and think through each move.'
+                    }
+                };
+
+                const game = games[gameType];
+                document.getElementById('currentGameTitle').textContent = game.title;
+                document.getElementById('currentGameDescription').textContent = game.description;
+
+                // Store help content for modal
+                this.currentGameHelp = game.help;
+
+                // Load specific game content
+                this.loadGameContent(gameType);
+            }
+
+            loadGameContent(gameType) {
+                const gameCanvas = document.getElementById('gameCanvas');
+
+                switch (gameType) {
+                    case 'memory-match':
+                        this.loadMemoryMatchGame(gameCanvas);
+                        break;
+                    case 'word-builder':
+                        this.loadWordBuilderGame(gameCanvas);
+                        break;
+                    case 'pattern-puzzle':
+                        this.loadPatternPuzzleGame(gameCanvas);
+                        break;
+                    case 'number-sequence':
+                        this.loadNumberSequenceGame(gameCanvas);
+                        break;
+                    case 'shape-sorter':
+                        this.loadShapeSorterGame(gameCanvas);
+                        break;
+                    case 'logic-ladder':
+                        this.loadLogicLadderGame(gameCanvas);
+                        break;
+                }
+            }
+
+            loadMemoryMatchGame(canvas) {
+                const cards = ['🌟', '🎈', '🎨', '🎵', '🌈', '⭐', '🎁', '🎪'];
+                const gameCards = [...cards, ...cards].sort(() => Math.random() - 0.5);
+
+                canvas.innerHTML = `
+                    <div class="text-center mb-6">
+                        <h4 class="text-xl font-opendyslexic font-bold text-text-primary mb-2">Memory Match</h4>
+                        <p class="text-text-secondary font-lexend">Find all matching pairs to win!</p>
+                    </div>
+                    <div class="grid grid-cols-4 gap-4 max-w-md mx-auto">
+                        ${gameCards.map((card, index) => `
+                            <div class="memory-card w-16 h-16 bg-primary-100 rounded-lg border-2 border-primary-200 flex items-center justify-center cursor-pointer hover:bg-primary-200 transition-colors" 
+                                 data-card="${card}" data-index="${index}">
+                                <span class="card-face hidden text-2xl">${card}</span>
+                                <span class="card-back text-primary-400">?</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+
+                this.initMemoryMatchLogic();
+            }
+
+            loadWordBuilderGame(canvas) {
+                const letters = ['A', 'E', 'I', 'O', 'U', 'R', 'S', 'T', 'L', 'N'];
+
+                canvas.innerHTML = `
+                    <div class="text-center mb-6">
+                        <h4 class="text-xl font-opendyslexic font-bold text-text-primary mb-2">Word Builder</h4>
+                        <p class="text-text-secondary font-lexend">Create words using the letters below!</p>
+                    </div>
+                    <div class="max-w-2xl mx-auto">
+                        <div id="wordArea" class="bg-surface rounded-lg p-4 mb-6 min-h-[60px] border-2 border-dashed border-border flex items-center justify-center">
+                            <span class="text-text-secondary font-lexend">Drag letters here to form words</span>
+                        </div>
+                        <div class="grid grid-cols-5 gap-3">
+                            ${letters.map(letter => `
+                                <div class="letter-tile w-12 h-12 bg-secondary-100 rounded-lg border border-secondary-200 flex items-center justify-center cursor-pointer hover:bg-secondary-200 transition-colors font-opendyslexic font-bold text-secondary-700" 
+                                     draggable="true" data-letter="${letter}">
+                                    ${letter}
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="mt-6 text-center">
+                            <button id="submitWord" class="btn-primary">Submit Word</button>
+                            <button id="clearWord" class="btn-secondary ml-3">Clear</button>
+                        </div>
+                    </div>
+                `;
+
+                this.initWordBuilderLogic();
+            }
+
+            updateWordDisplay(word) {
+                const wordArea = document.getElementById('wordArea');
+                if (word.length === 0) {
+                    wordArea.innerHTML = '<span class="text-text-secondary font-lexend">Drag letters here to form words</span>';
+                } else {
+                    wordArea.innerHTML = `<span class="text-2xl font-opendyslexic font-bold text-text-primary">${word.join('')}</span>`;
+                }
+            }
+
+            loadPatternPuzzleGame(canvas) {
+                const patterns = [
+                    { sequence: ['🔴', '🔵', '🔴', '🔵', '?'], answer: '🔴' },
+                    { sequence: ['⭐', '⭐⭐', '⭐⭐⭐', '?'], answer: '⭐⭐⭐⭐' },
+                    { sequence: ['🟦', '🟩', '🟨', '🟦', '🟩', '?'], answer: '🟨' }
+                ];
+
+                const currentPattern = patterns[0];
+
+                canvas.innerHTML = `
+                    <div class="text-center mb-6">
+                        <h4 class="text-xl font-opendyslexic font-bold text-text-primary mb-2">Pattern Puzzle</h4>
+                        <p class="text-text-secondary font-lexend">Complete the pattern sequence!</p>
+                    </div>
+                    <div class="max-w-2xl mx-auto">
+                        <div class="flex justify-center items-center space-x-4 mb-8">
+                            ${currentPattern.sequence.map((item, index) => `
+                                <div class="pattern-item w-16 h-16 bg-white rounded-lg border-2 border-accent-200 flex items-center justify-center text-2xl ${item === '?' ? 'bg-accent-50' : ''}">
+                                    ${item === '?' ? '?' : item}
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="grid grid-cols-4 gap-3 max-w-md mx-auto">
+                            <div class="pattern-option w-16 h-16 bg-primary-100 rounded-lg border border-primary-200 flex items-center justify-center cursor-pointer hover:bg-primary-200 transition-colors text-2xl" data-option="🔴">🔴</div>
+                            <div class="pattern-option w-16 h-16 bg-primary-100 rounded-lg border border-primary-200 flex items-center justify-center cursor-pointer hover:bg-primary-200 transition-colors text-2xl" data-option="🔵">🔵</div>
+                            <div class="pattern-option w-16 h-16 bg-primary-100 rounded-lg border border-primary-200 flex items-center justify-center cursor-pointer hover:bg-primary-200 transition-colors text-2xl" data-option="🟨">🟨</div>
+                            <div class="pattern-option w-16 h-16 bg-primary-100 rounded-lg border border-primary-200 flex items-center justify-center cursor-pointer hover:bg-primary-200 transition-colors text-2xl" data-option="🟩">🟩</div>
+                        </div>
+                    </div>
+                `;
+
+                this.initPatternPuzzleLogic(currentPattern);
+            }
+
+            loadNumberSequenceGame(canvas) {
+                const sequences = [
+                    { sequence: [2, 4, 6, 8, '?'], answer: 10 },
+                    { sequence: [1, 3, 5, 7, '?'], answer: 9 },
+                    { sequence: [5, 10, 15, 20, '?'], answer: 25 }
+                ];
+
+                const currentSequence = sequences[0];
+
+                canvas.innerHTML = `
+                    <div class="text-center mb-6">
+                        <h4 class="text-xl font-opendyslexic font-bold text-text-primary mb-2">Number Sequence</h4>
+                        <p class="text-text-secondary font-lexend">Find the missing number in the sequence!</p>
+                    </div>
+                    <div class="max-w-2xl mx-auto">
+                        <div class="flex justify-center items-center space-x-4 mb-8">
+                            ${currentSequence.sequence.map((num, index) => `
+                                <div class="number-item w-16 h-16 bg-white rounded-lg border-2 border-success-200 flex items-center justify-center text-xl font-opendyslexic font-bold ${num === '?' ? 'bg-success-50' : ''}">
+                                    ${num}
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="grid grid-cols-4 gap-3 max-w-md mx-auto">
+                            ${[8, 9, 10, 11].map(num => `
+                                <div class="number-option w-16 h-16 bg-success-100 rounded-lg border border-success-200 flex items-center justify-center cursor-pointer hover:bg-success-200 transition-colors text-xl font-opendyslexic font-bold" data-number="${num}">${num}</div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+
+                this.initNumberSequenceLogic(currentSequence);
+            }
+
+            loadShapeSorterGame(canvas) {
+                const shapes = [
+                    { shape: '🔴', color: 'red', size: 'large' },
+                    { shape: '🔵', color: 'blue', size: 'medium' },
+                    { shape: '🟨', color: 'yellow', size: 'small' },
+                    { shape: '🟩', color: 'green', size: 'large' },
+                    { shape: '🟦', color: 'blue', size: 'small' },
+                    { shape: '🟥', color: 'red', size: 'medium' }
+                ];
+
+                canvas.innerHTML = `
+                    <div class="text-center mb-6">
+                        <h4 class="text-xl font-opendyslexic font-bold text-text-primary mb-2">Shape Sorter</h4>
+                        <p class="text-text-secondary font-lexend">Sort shapes by color into the correct bins!</p>
+                    </div>
+                    <div class="max-w-4xl mx-auto">
+                        <div class="grid grid-cols-3 gap-6 mb-8">
+                            <div class="sort-bin bg-error-50 border-2 border-error-200 rounded-lg p-4 min-h-[120px]" data-color="red">
+                                <h5 class="text-center font-nunito-sans font-semibold text-error-700 mb-2">Red Shapes</h5>
+                                <div class="shapes-container flex flex-wrap gap-2 justify-center"></div>
+                            </div>
+                            <div class="sort-bin bg-primary-50 border-2 border-primary-200 rounded-lg p-4 min-h-[120px]" data-color="blue">
+                                <h5 class="text-center font-nunito-sans font-semibold text-primary-700 mb-2">Blue Shapes</h5>
+                                <div class="shapes-container flex flex-wrap gap-2 justify-center"></div>
+                            </div>
+                            <div class="sort-bin bg-warning-50 border-2 border-warning-200 rounded-lg p-4 min-h-[120px]" data-color="yellow">
+                                <h5 class="text-center font-nunito-sans font-semibold text-warning-700 mb-2">Yellow Shapes</h5>
+                                <div class="shapes-container flex flex-wrap gap-2 justify-center"></div>
+                            </div>
+                        </div>
+                        <div class="bg-surface rounded-lg p-4">
+                            <h5 class="text-center font-nunito-sans font-semibold text-text-primary mb-4">Shapes to Sort</h5>
+                            <div class="flex flex-wrap gap-3 justify-center">
+                                ${shapes.map((shape, index) => `
+                                    <div class="shape-item w-12 h-12 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform text-2xl" 
+                                         draggable="true" data-color="${shape.color}" data-index="${index}">
+                                        ${shape.shape}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                this.initShapeSorterLogic();
+            }
+
+            loadLogicLadderGame(canvas) {
+                canvas.innerHTML = `
+                    <div class="text-center mb-6">
+                        <h4 class="text-xl font-opendyslexic font-bold text-text-primary mb-2">Logic Ladder</h4>
+                        <p class="text-text-secondary font-lexend">Solve the logic puzzle step by step!</p>
+                    </div>
+                    <div class="max-w-2xl mx-auto">
+                        <div class="bg-surface rounded-lg p-6 mb-6">
+                            <h5 class="font-nunito-sans font-semibold text-text-primary mb-4">Puzzle: Three Friends</h5>
+                            <p class="text-text-secondary font-lexend mb-4">
+                                Alex, Ben, and Chris each have a different pet: a cat, a dog, and a bird.
+                                <br>• Alex doesn't have the cat
+                                <br>• Ben has the dog
+                                <br>• Who has the bird?
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="logic-option bg-white border-2 border-border rounded-lg p-4 cursor-pointer hover:border-primary-300 transition-colors" data-answer="alex">
+                                <span class="font-nunito-sans font-semibold">Alex has the bird</span>
+                            </div>
+                            <div class="logic-option bg-white border-2 border-border rounded-lg p-4 cursor-pointer hover:border-primary-300 transition-colors" data-answer="ben">
+                                <span class="font-nunito-sans font-semibold">Ben has the bird</span>
+                            </div>
+                            <div class="logic-option bg-white border-2 border-border rounded-lg p-4 cursor-pointer hover:border-primary-300 transition-colors" data-answer="chris">
+                                <span class="font-nunito-sans font-semibold">Chris has the bird</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                this.initLogicLadderLogic();
+            }
+
+            // Game Logic Implementations
+            initMemoryMatchLogic() {
+                let flippedCards = [];
+                let matchedPairs = 0;
+                const totalPairs = 8;
+
+                document.querySelectorAll('.memory-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        if (flippedCards.length < 2 && !card.classList.contains('flipped')) {
+                            this.flipCard(card);
+                            flippedCards.push(card);
+
+                            if (flippedCards.length === 2) {
+                                setTimeout(() => {
+                                    if (flippedCards[0].dataset.card === flippedCards[1].dataset.card) {
+                                        flippedCards.forEach(c => c.classList.add('matched'));
+                                        matchedPairs++;
+                                        this.updateScore(10);
+                                        this.updateProgress((matchedPairs / totalPairs) * 100);
+
+                                        if (matchedPairs === totalPairs) {
+                                            this.completeLevel();
+                                        }
+                                    } else {
+                                        flippedCards.forEach(c => this.flipCard(c));
+                                    }
+                                    flippedCards = [];
+                                }, 1000);
+                            }
+                        }
+                    });
+                });
+            }
+
+            flipCard(card) {
+                const face = card.querySelector('.card-face');
+                const back = card.querySelector('.card-back');
+
+                if (card.classList.contains('flipped')) {
+                    face.classList.add('hidden');
+                    back.classList.remove('hidden');
+                    card.classList.remove('flipped');
+                } else {
+                    face.classList.remove('hidden');
+                    back.classList.add('hidden');
+                    card.classList.add('flipped');
+                }
+            }
+
+            initWordBuilderLogic() {
+                let currentWord = [];
+
+                // Drag and drop functionality
+                document.querySelectorAll('.letter-tile').forEach(tile => {
+                    tile.addEventListener('dragstart', (e) => {
+                        e.dataTransfer.setData('text/plain', e.target.dataset.letter);
+                    });
+                });
+
+                const wordArea = document.getElementById('wordArea');
+                wordArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                });
+
+                wordArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    const letter = e.dataTransfer.getData('text/plain');
+                    currentWord.push(letter);
+                    this.updateWordDisplay(currentWord);
+                });
+
+                document.getElementById('submitWord').addEventListener('click', () => {
+                    if (currentWord.length >= 3) {
+                        this.updateScore(currentWord.length * 5);
+                        this.updateProgress(Math.min(100, this.gameState.progress + 20));
+                        currentWord = [];
+                        this.updateWordDisplay(currentWord);
+
+                        if (this.gameState.progress >= 100) {
+                            this.completeLevel();
+                        }
+                    }
+                });
+
+                document.getElementById('clearWord').addEventListener('click', () => {
+                    currentWord = [];
+                    this.updateWordDisplay(currentWord);
+                });
+            }
+
+            updateWordDisplay(word) {
+                const wordArea = document.getElementById('wordArea');
+                if (word.length === 0) {
+                    wordArea.innerHTML = '<span class="text-text-secondary font-lexend">Drag letters here to form words</span>';
+                } else {
+                    wordArea.innerHTML = `<span class="text-2xl font-opendyslexic font-bold text-text-primary">${word.join('')}</span>`;
+                }
+            }
+
+            initPatternPuzzleLogic(pattern) {
+                document.querySelectorAll('.pattern-option').forEach(option => {
+                    option.addEventListener('click', () => {
+                        const selectedOption = option.dataset.option;
+                        if (selectedOption === pattern.answer) {
+                            this.updateScore(20);
+                            this.updateProgress(100);
+                            this.completeLevel();
+                        } else {
+                            option.classList.add('bg-error-100', 'border-error-300');
+                            setTimeout(() => {
+                                option.classList.remove('bg-error-100', 'border-error-300');
+                            }, 1000);
+                        }
+                    });
+                });
+            }
+
+            initNumberSequenceLogic(sequence) {
+                document.querySelectorAll('.number-option').forEach(option => {
+                    option.addEventListener('click', () => {
+                        const selectedNumber = parseInt(option.dataset.number);
+                        if (selectedNumber === sequence.answer) {
+                            this.updateScore(15);
+                            this.updateProgress(100);
+                            this.completeLevel();
+                        } else {
+                            option.classList.add('bg-error-100', 'border-error-300');
+                            setTimeout(() => {
+                                option.classList.remove('bg-error-100', 'border-error-300');
+                            }, 1000);
+                        }
+                    });
+                });
+            }
+
+            initShapeSorterLogic() {
+                let sortedShapes = 0;
+                const totalShapes = 6;
+
+                document.querySelectorAll('.shape-item').forEach(shape => {
+                    shape.addEventListener('dragstart', (e) => {
+                        e.dataTransfer.setData('text/plain', JSON.stringify({
+                            color: shape.dataset.color,
+                            index: shape.dataset.index,
+                            element: shape.outerHTML
+                        }));
+                    });
+                });
+
+                document.querySelectorAll('.sort-bin').forEach(bin => {
+                    bin.addEventListener('dragover', (e) => {
+                        e.preventDefault();
+                    });
+
+                    bin.addEventListener('drop', (e) => {
+                        e.preventDefault();
+                        const shapeData = JSON.parse(e.dataTransfer.getData('text/plain'));
+
+                        if (shapeData.color === bin.dataset.color) {
+                            const container = bin.querySelector('.shapes-container');
+                            container.innerHTML += shapeData.element;
+
+                            // Remove original shape
+                            const originalShape = document.querySelector(`[data-index="${shapeData.index}"]`);
+                            if (originalShape) {
+                                originalShape.remove();
+                                sortedShapes++;
+                                this.updateScore(10);
+                                this.updateProgress((sortedShapes / totalShapes) * 100);
+
+                                if (sortedShapes === totalShapes) {
+                                    this.completeLevel();
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+
+            initLogicLadderLogic() {
+                document.querySelectorAll('.logic-option').forEach(option => {
+                    option.addEventListener('click', () => {
+                        const answer = option.dataset.answer;
+                        if (answer === 'alex') { // Correct answer: Alex has the bird
+                            this.updateScore(25);
+                            this.updateProgress(100);
+                            this.completeLevel();
+                        } else {
+                            option.classList.add('bg-error-100', 'border-error-300');
+                            setTimeout(() => {
+                                option.classList.remove('bg-error-100', 'border-error-300');
+                            }, 1000);
+                        }
+                    });
+                });
+            }
+
+            // Game State Management
+            resetGameState() {
+                this.gameState = {
+                    score: 0,
+                    level: 1,
+                    time: 0,
+                    progress: 0,
+                    isPaused: false,
+                    isComplete: false
+                };
+                this.updateUI();
+            }
+
+            updateScore(points) {
+                this.gameState.score += points;
+                document.getElementById('gameScore').textContent = this.gameState.score;
+            }
+
+            updateProgress(percentage) {
+                this.gameState.progress = Math.min(100, percentage);
+                document.getElementById('gameProgress').style.width = `${this.gameState.progress}%`;
+                document.getElementById('progressText').textContent = `${Math.round(this.gameState.progress)}%`;
+            }
+
+            updateUI() {
+                document.getElementById('gameScore').textContent = this.gameState.score;
+                document.getElementById('gameLevel').textContent = this.gameState.level;
+                document.getElementById('gameProgress').style.width = `${this.gameState.progress}%`;
+                document.getElementById('progressText').textContent = `${Math.round(this.gameState.progress)}%`;
+            }
+
+            startGameTimer() {
+                this.gameTimer = setInterval(() => {
+                    if (!this.gameState.isPaused) {
+                        this.gameState.time++;
+                        const minutes = Math.floor(this.gameState.time / 60);
+                        const seconds = this.gameState.time % 60;
+                        document.getElementById('gameTime').textContent =
+                            `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    }
+                }, 1000);
+            }
+
+            stopGame() {
+                if (this.gameTimer) {
+                    clearInterval(this.gameTimer);
+                    this.gameTimer = null;
+                }
+            }
+
+            pauseGame() {
+                this.gameState.isPaused = true;
+                this.showModal('pauseModal');
+            }
+
+            resumeGame() {
+                this.gameState.isPaused = false;
+                this.closeModal('pauseModal');
+            }
+
+            quitGame() {
+                this.stopGame();
+                this.closeModal('pauseModal');
+                this.showGameSelection();
+            }
+
+            restartGame() {
+                this.stopGame();
+                this.startGame(this.currentGame);
+            }
+
+            nextLevel() {
+                this.gameState.level++;
+                this.gameState.progress = 0;
+                this.updateUI();
+                this.loadGameContent(this.currentGame);
+                document.getElementById('nextLevel').classList.add('hidden');
+            }
+
+            completeLevel() {
+                this.gameState.isComplete = true;
+                document.getElementById('nextLevel').classList.remove('hidden');
+
+                // Save progress
+                this.saveProgress();
+
+                // Show success modal
+                setTimeout(() => {
+                    this.showModal('successModal');
+                }, 1000);
+            }
+
+            saveProgress() {
+                const progress = JSON.parse(localStorage.getItem('gameProgress') || '{}');
+                progress[this.currentGame] = {
+                    level: this.gameState.level,
+                    score: this.gameState.score,
+                    time: this.gameState.time,
+                    completed: this.gameState.isComplete,
+                    timestamp: new Date().toISOString()
+                };
+                localStorage.setItem('gameProgress', JSON.stringify(progress));
+            }
+
+            showHelp() {
+                const helpContent = document.getElementById('helpContent');
+                helpContent.innerHTML = `
+                    <div class="space-y-4">
+                        <p class="text-text-secondary font-lexend leading-relaxed">
+                            ${this.currentGameHelp || 'Game instructions will appear here.'}
+                        </p>
+                        <div class="bg-accent-50 border border-accent-200 rounded-lg p-4">
+                            <h5 class="font-nunito-sans font-semibold text-accent-700 mb-2">💡 Tips for Success:</h5>
+                            <ul class="text-sm text-accent-600 font-lexend space-y-1">
+                                <li>• Take your time - there's no rush!</li>
+                                <li>• Use the pause button if you need a break</li>
+                                <li>• Focus on one task at a time</li>
+                                <li>• Celebrate small victories along the way</li>
+                            </ul>
+                        </div>
+                        <div class="bg-primary-50 border border-primary-200 rounded-lg p-4">
+                            <h5 class="font-nunito-sans font-semibold text-primary-700 mb-2">🎮 Controls:</h5>
+                            <ul class="text-sm text-primary-600 font-lexend space-y-1">
+                                <li>• Click or tap to interact with game elements</li>
+                                <li>• Use drag and drop where indicated</li>
+                                <li>• Press the help button anytime for assistance</li>
+                                <li>• Use the pause button to take breaks</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+                this.showModal('helpModal');
+            }
+
+            showModal(modalId) {
+                document.getElementById(modalId).classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            closeModal(modalId) {
+                document.getElementById(modalId).classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Initialize Game Engine
+        const gameEngine = new GameEngine();
+
+        // Close modals when clicking outside
+        document.querySelectorAll('[role="dialog"]').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    gameEngine.closeModal(modal.id);
+                }
+            });
+        });
+
+        // Close modals with escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const openModals = document.querySelectorAll('[role="dialog"]:not(.hidden)');
+                openModals.forEach(modal => {
+                    gameEngine.closeModal(modal.id);
+                });
+            }
+        });
+    </script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Intercept internal links
+            document.querySelectorAll('a').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && !href.startsWith('http')) { // only local pages
+                    link.addEventListener('click', e => {
+                        e.preventDefault();
+                        loadPage(href);
+                    });
+                }
+            });
+
+            async function loadPage(url) {
+                const main = document.querySelector('main'); // your content container
+                if (!main) return;
+
+                try {
+                    const response = await fetch(url);
+                    const text = await response.text();
+
+                    // Extract just the <main> section from the fetched page
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(text, 'text/html');
+                    const newMain = doc.querySelector('main');
+
+                    if (newMain) {
+                        main.innerHTML = newMain.innerHTML;
+                        window.history.pushState({}, '', url);
+                    }
+
+                    // Optionally re-run any per-page scripts
+                } catch (err) {
+                    console.error("Error loading page:", err);
+                }
+            }
+
+            // Handle back/forward navigation
+            window.addEventListener('popstate', () => loadPage(location.pathname));
+        });
+    </script>
+
+</body>
+
+</html>

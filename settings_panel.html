@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindBridge Games - Settings Panel</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <meta name="description"
+        content="Customize your MindBridge Games experience with accessibility controls, theme options, audio settings, and personalized learning preferences.">
+
+    <script type="module"
+        src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fmindbridge3329back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+    <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+</head>
+
+<body class="bg-background min-h-screen">
+    <nav class="bg-white border-b border-border shadow-gentle sticky top-0 z-50" role="navigation"
+        aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-opendyslexic font-bold text-text-primary"><a
+                                href="individual_game_screens.html">MindBridge Games</a></h1>
+                        <p class="text-xs text-text-secondary font-lexend">Learning Through Play</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+
+                    <button id="themeToggle"
+                        class="p-2 rounded-lg bg-surface hover:bg-border transition-colors focus-ring"
+                        aria-label="Toggle dark mode">
+                        <svg id="themeIconSVG" class="w-5 h-5 text-text-secondary" fill="currentColor"
+                            viewBox="0 0 24 24" aria-hidden="true">
+                            <path id="themeIconPath"
+                                d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
+                        </svg>
+                    </button>
+                    <div class="flex items-center space-x-4">
+                        <a href="user_profile_dashboard.html"
+                            class="text-text-secondary hover:text-primary font-nunito-sans font-medium px-3 py-2 rounded-lg hover:bg-primary-50 transition-colors focus-ring">
+                            My Progress
+                        </a>
+                        <a href="settings_panel.html"
+                            class="text-text-secondary hover:text-primary font-nunito-sans font-medium px-3 py-2 rounded-lg hover:bg-primary-50 transition-colors focus-ring">
+                            Settings
+                        </a>
+                    </div>
+
+                    <button id="mobileMenuToggle"
+                        class="md:hidden p-2 rounded-lg bg-surface hover:bg-border transition-colors focus-ring"
+                        aria-label="Open mobile menu">
+                        <svg class="w-5 h-5 text-text-secondary" fill="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path d="M3 12h18m-9-9v18" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-border">
+            <div class="px-4 py-3 space-y-2">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <section class="mb-12" aria-labelledby="settings-heading">
+            <div class="text-center">
+                <h2 id="settings-heading" class="text-4xl font-opendyslexic font-bold text-text-primary mb-4">
+                    Personalize Your Experience ⚙️
+                </h2>
+                <p class="text-lg text-text-secondary font-lexend max-w-2xl mx-auto leading-relaxed">
+                    Customize MindBridge Games to match your unique learning style and preferences. All changes are
+                    saved automatically.
+                </p>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <button id="resetDefaults"
+                    class="px-6 py-3 bg-warning text-white rounded-lg font-nunito-sans font-semibold hover:bg-warning-600 transition-colors focus-ring">
+                    Reset to Defaults
+                </button>
+                <button id="exportSettings"
+                    class="px-6 py-3 bg-secondary text-white rounded-lg font-nunito-sans font-semibold hover:bg-secondary-600 transition-colors focus-ring">
+                    Export Settings
+                </button>
+                <button id="importSettings"
+                    class="px-6 py-3 bg-accent text-white rounded-lg font-nunito-sans font-semibold hover:bg-accent-600 transition-colors focus-ring">
+                    Import Settings
+                </button>
+            </div>
+        </section>
+
+        <!-- Settings Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Accessibility Settings -->
+            <section class="bg-white rounded-xl border border-border shadow-gentle p-8"
+                aria-labelledby="accessibility-heading">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                    </div>
+                    <h3 id="accessibility-heading" class="text-2xl font-opendyslexic font-bold text-text-primary">
+                        Accessibility Options
+                    </h3>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Theme Selection -->
+                    <div class="setting-group">
+                        <label class="block text-lg font-nunito-sans font-semibold text-text-primary mb-3">
+                            Theme Preference
+                        </label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <button class="theme-option active" data-theme="light" aria-label="Light theme">
+                                <div
+                                    class="w-full h-16 bg-gradient-to-br from-white to-surface rounded-lg border-2 border-primary mb-2">
+                                </div>
+                                <span class="text-sm font-lexend text-text-primary">Light</span>
+                            </button>
+                            <button class="theme-option" data-theme="dark" aria-label="Dark theme">
+                                <div
+                                    class="w-full h-16 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg border-2 border-transparent mb-2">
+                                </div>
+                                <span class="text-sm font-lexend text-text-primary">Dark</span>
+                            </button>
+                            <button class="theme-option" data-theme="high-contrast" aria-label="High contrast theme">
+                                <div
+                                    class="w-full h-16 bg-gradient-to-br from-black to-white rounded-lg border-2 border-transparent mb-2">
+                                </div>
+                                <span class="text-sm font-lexend text-text-primary">High Contrast</span>
+                            </button>
+                        </div>
+                        <p class="text-sm text-text-secondary font-lexend mt-2">
+                            💡 Choose a theme that's comfortable for your eyes and reduces visual strain.
+                        </p>
+                    </div>
+
+                    <!-- Font Size Control -->
+                    <div class="setting-group">
+                        <label for="fontSize"
+                            class="block text-lg font-nunito-sans font-semibold text-text-primary mb-3">
+                            Text Size
+                        </label>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-sm font-lexend text-text-secondary">Small</span>
+                            <input type="range" id="fontSize" min="14" max="24" value="16"
+                                class="flex-1 h-2 bg-surface rounded-lg appearance-none cursor-pointer focus-ring"
+                                aria-label="Adjust text size">
+                            <span class="text-lg font-lexend text-text-secondary">Large</span>
+                        </div>
+                        <div class="mt-3 p-4 bg-surface rounded-lg">
+                            <p id="fontPreview" class="font-lexend text-text-primary">
+                                This is how your text will look with the selected size.
+                            </p>
+                        </div>
+                        <p class="text-sm text-text-secondary font-lexend mt-2">
+                            💡 Larger text can improve reading comfort and reduce eye strain.
+                        </p>
+                    </div>
+
+                    <!-- Motion Preferences -->
+                    <div class="setting-group">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <label for="reducedMotion"
+                                    class="text-lg font-nunito-sans font-semibold text-text-primary">
+                                    Reduce Motion
+                                </label>
+                                <p class="text-sm text-text-secondary font-lexend mt-1">
+                                    Minimize animations and transitions for a calmer experience.
+                                </p>
+                            </div>
+                            <label class="toggle-switch" for="reducedMotion">
+                                <input type="checkbox" id="reducedMotion" class="sr-only">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="text-sm text-text-secondary font-lexend mt-2">
+                            💡 Helpful for users sensitive to motion or who prefer a more static interface.
+                        </p>
+                    </div>
+
+                    <!-- Focus Indicators -->
+                    <div class="setting-group">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <label for="enhancedFocus"
+                                    class="text-lg font-nunito-sans font-semibold text-text-primary">
+                                    Enhanced Focus Indicators
+                                </label>
+                                <p class="text-sm text-text-secondary font-lexend mt-1">
+                                    Make keyboard navigation more visible with stronger focus outlines.
+                                </p>
+                            </div>
+                            <label class="toggle-switch" for="enhancedFocus">
+                                <input type="checkbox" id="enhancedFocus" class="sr-only" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="text-sm text-text-secondary font-lexend mt-2">
+                            💡 Essential for keyboard navigation and screen reader users.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Audio & Sound Settings -->
+            <section class="bg-white rounded-xl border border-border shadow-gentle p-8" aria-labelledby="audio-heading">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-10 h-10 bg-secondary-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                        </svg>
+                    </div>
+                    <h3 id="audio-heading" class="text-2xl font-opendyslexic font-bold text-text-primary">
+                        Audio & Sound
+                    </h3>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Master Volume -->
+                    <div class="setting-group">
+                        <label for="masterVolume"
+                            class="block text-lg font-nunito-sans font-semibold text-text-primary mb-3">
+                            Master Volume
+                        </label>
+                        <div class="flex items-center space-x-4">
+                            <svg class="w-5 h-5 text-text-secondary" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path d="M7 9v6h4l5 5V4l-5 5H7z" />
+                            </svg>
+                            <input type="range" id="masterVolume" min="0" max="100" value="75"
+                                class="flex-1 h-2 bg-surface rounded-lg appearance-none cursor-pointer focus-ring"
+                                aria-label="Adjust master volume">
+                            <svg class="w-5 h-5 text-text-secondary" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
+                            </svg>
+                        </div>
+                        <div class="flex justify-between text-sm text-text-secondary font-lexend mt-2">
+                            <span>0%</span>
+                            <span id="volumeDisplay">75%</span>
+                            <span>100%</span>
+                        </div>
+                    </div>
+
+                    <!-- Background Music -->
+                    <div class="setting-group">
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <label for="backgroundMusic"
+                                    class="text-lg font-nunito-sans font-semibold text-text-primary">
+                                    Background Music
+                                </label>
+                                <p class="text-sm text-text-secondary font-lexend mt-1">
+                                    Gentle ambient music to enhance focus and relaxation.
+                                </p>
+                            </div>
+                            <label class="toggle-switch" for="backgroundMusic">
+                                <input type="checkbox" id="backgroundMusic" class="sr-only" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="music-options space-y-2">
+                            <label
+                                class="flex items-center space-x-3 p-3 bg-surface rounded-lg cursor-pointer hover:bg-border transition-colors">
+                                <input type="radio" name="musicType" value="ambient" checked
+                                    class="text-primary focus-ring">
+                                <span class="font-lexend text-text-primary">Ambient Nature</span>
+                            </label>
+                            <label
+                                class="flex items-center space-x-3 p-3 bg-surface rounded-lg cursor-pointer hover:bg-border transition-colors">
+                                <input type="radio" name="musicType" value="classical" class="text-primary focus-ring">
+                                <span class="font-lexend text-text-primary">Classical Piano</span>
+                            </label>
+                            <label
+                                class="flex items-center space-x-3 p-3 bg-surface rounded-lg cursor-pointer hover:bg-border transition-colors">
+                                <input type="radio" name="musicType" value="white-noise"
+                                    class="text-primary focus-ring">
+                                <span class="font-lexend text-text-primary">White Noise</span>
+                            </label>
+                        </div>
+                        <p class="text-sm text-text-secondary font-lexend mt-2">
+                            💡 Background music can help some learners focus better and feel more relaxed.
+                        </p>
+                    </div>
+
+                    <!-- Sound Effects -->
+                    <div class="setting-group">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <label for="soundEffects"
+                                    class="text-lg font-nunito-sans font-semibold text-text-primary">
+                                    Game Sound Effects
+                                </label>
+                                <p class="text-sm text-text-secondary font-lexend mt-1">
+                                    Positive feedback sounds for correct answers and achievements.
+                                </p>
+                            </div>
+                            <label class="toggle-switch" for="soundEffects">
+                                <input type="checkbox" id="soundEffects" class="sr-only" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="text-sm text-text-secondary font-lexend mt-2">
+                            💡 Sound effects provide immediate feedback and can make games more engaging.
+                        </p>
+                    </div>
+
+                    <!-- Voice Guidance -->
+                    <div class="setting-group">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <label for="voiceGuidance"
+                                    class="text-lg font-nunito-sans font-semibold text-text-primary">
+                                    Voice Guidance
+                                </label>
+                                <p class="text-sm text-text-secondary font-lexend mt-1">
+                                    Spoken instructions and encouragement during games.
+                                </p>
+                            </div>
+                            <label class="toggle-switch" for="voiceGuidance">
+                                <input type="checkbox" id="voiceGuidance" class="sr-only">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="text-sm text-text-secondary font-lexend mt-2">
+                            💡 Helpful for users who prefer auditory instructions or have reading difficulties.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Preferences -->
+            <section class="bg-white rounded-xl border border-border shadow-gentle p-8"
+                aria-labelledby="learning-heading">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-10 h-10 bg-accent-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                    </div>
+                    <h3 id="learning-heading" class="text-2xl font-opendyslexic font-bold text-text-primary">
+                        Learning Preferences
+                    </h3>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Difficulty Adaptation -->
+                    <div class="setting-group">
+                        <label for="adaptiveDifficulty"
+                            class="block text-lg font-nunito-sans font-semibold text-text-primary mb-3">
+                            Adaptive Difficulty
+                        </label>
+                        <select id="adaptiveDifficulty"
+                            class="w-full px-4 py-3 border border-border rounded-lg focus-ring font-lexend">
+                            <option value="automatic">Automatic (Recommended)</option>
+                            <option value="manual">Manual Control</option>
+                            <option value="fixed-easy">Always Easy</option>
+                            <option value="fixed-medium">Always Medium</option>
+                            <option value="fixed-hard">Always Hard</option>
+                        </select>
+                        <p class="text-sm text-text-secondary font-lexend mt-2">
+                            💡 Automatic mode adjusts game difficulty based on your performance to keep you challenged
+                            but not frustrated.
+                        </p>
+                    </div>
+
+                    <!-- Hint System -->
+                    <div class="setting-group">
+                        <label for="hintFrequency"
+                            class="block text-lg font-nunito-sans font-semibold text-text-primary mb-3">
+                            Hint Frequency
+                        </label>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-sm font-lexend text-text-secondary">Minimal</span>
+                            <input type="range" id="hintFrequency" min="1" max="5" value="3"
+                                class="flex-1 h-2 bg-surface rounded-lg appearance-none cursor-pointer focus-ring"
+                                aria-label="Adjust hint frequency">
+                            <span class="text-sm font-lexend text-text-secondary">Frequent</span>
+                        </div>
+                        <div class="flex justify-between text-sm text-text-secondary font-lexend mt-2">
+                            <span>Independent</span>
+                            <span id="hintDisplay">Balanced</span>
+                            <span>Guided</span>
+                        </div>
+                        <p class="text-sm text-text-secondary font-lexend mt-2">
+                            💡 More hints can help build confidence, while fewer hints encourage independent
+                            problem-solving.
+                        </p>
+                    </div>
+
+                    <!-- Progress Celebration -->
+                    <div class="setting-group">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <label for="celebrateProgress"
+                                    class="text-lg font-nunito-sans font-semibold text-text-primary">
+                                    Celebrate Small Wins
+                                </label>
+                                <p class="text-sm text-text-secondary font-lexend mt-1">
+                                    Show encouraging messages and animations for every achievement.
+                                </p>
+                            </div>
+                            <label class="toggle-switch" for="celebrateProgress">
+                                <input type="checkbox" id="celebrateProgress" class="sr-only" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="text-sm text-text-secondary font-lexend mt-2">
+                            💡 Positive reinforcement helps build confidence and motivation to continue learning.
+                        </p>
+                    </div>
+
+                    <!-- Time Pressure -->
+                    <div class="setting-group">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <label for="timePressure"
+                                    class="text-lg font-nunito-sans font-semibold text-text-primary">
+                                    Remove Time Pressure
+                                </label>
+                                <p class="text-sm text-text-secondary font-lexend mt-1">
+                                    Hide timers and allow unlimited time for thinking and problem-solving.
+                                </p>
+                            </div>
+                            <label class="toggle-switch" for="timePressure">
+                                <input type="checkbox" id="timePressure" class="sr-only" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="text-sm text-text-secondary font-lexend mt-2">
+                            💡 Removing time pressure can reduce anxiety and allow for deeper thinking.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Privacy & Data Settings -->
+            <section class="bg-white rounded-xl border border-border shadow-gentle p-8"
+                aria-labelledby="privacy-heading">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-10 h-10 bg-success-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-success" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z" />
+                        </svg>
+                    </div>
+                    <h3 id="privacy-heading" class="text-2xl font-opendyslexic font-bold text-text-primary">
+                        Privacy & Data
+                    </h3>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Data Collection -->
+                    <div class="setting-group">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <label for="dataCollection"
+                                    class="text-lg font-nunito-sans font-semibold text-text-primary">
+                                    Learning Analytics
+                                </label>
+                                <p class="text-sm text-text-secondary font-lexend mt-1">
+                                    Allow collection of anonymous learning data to improve game recommendations.
+                                </p>
+                            </div>
+                            <label class="toggle-switch" for="dataCollection">
+                                <input type="checkbox" id="dataCollection" class="sr-only" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="text-sm text-text-secondary font-lexend mt-2">
+                            💡 This data helps us understand learning patterns and improve the games for everyone.
+                        </p>
+                    </div>
+
+                    <!-- Progress Sharing -->
+                    <div class="setting-group">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <label for="progressSharing"
+                                    class="text-lg font-nunito-sans font-semibold text-text-primary">
+                                    Share Progress with Educators
+                                </label>
+                                <p class="text-sm text-text-secondary font-lexend mt-1">
+                                    Allow teachers or parents to view your learning progress and achievements.
+                                </p>
+                            </div>
+                            <label class="toggle-switch" for="progressSharing">
+                                <input type="checkbox" id="progressSharing" class="sr-only">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="text-sm text-text-secondary font-lexend mt-2">
+                            💡 Sharing progress can help educators provide better support and celebrate your
+                            achievements.
+                        </p>
+                    </div>
+
+                    <!-- Data Export -->
+                    <div class="setting-group">
+                        <label class="block text-lg font-nunito-sans font-semibold text-text-primary mb-3">
+                            Your Data
+                        </label>
+                        <div class="flex flex-wrap gap-3">
+                            <button
+                                class="px-4 py-2 bg-primary text-white rounded-lg font-nunito-sans font-medium hover:bg-primary-600 transition-colors focus-ring">
+                                Download My Data
+                            </button>
+                            <button
+                                class="px-4 py-2 bg-error text-white rounded-lg font-nunito-sans font-medium hover:bg-error-600 transition-colors focus-ring">
+                                Delete My Data
+                            </button>
+                        </div>
+                        <p class="text-sm text-text-secondary font-lexend mt-2">
+                            💡 You have full control over your personal data and can download or delete it at any time.
+                        </p>
+                    </div>
+
+                    <!-- Last Updated -->
+                    <div class="setting-group">
+                        <div class="bg-surface rounded-lg p-4">
+                            <div class="flex items-center space-x-2 text-sm text-text-secondary font-lexend">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                </svg>
+                                <span>Settings last updated: October 28, 2025 at 12:50 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Save Changes Section -->
+        <section class="mt-12 bg-white rounded-xl border border-border shadow-gentle p-8 text-center">
+            <h3 class="text-2xl font-opendyslexic font-bold text-text-primary mb-4">
+                Your Changes Are Saved Automatically ✨
+            </h3>
+            <p class="text-text-secondary font-lexend mb-6 max-w-2xl mx-auto">
+                All your preferences are saved instantly as you make changes. You can always come back to adjust these
+                settings whenever you need to.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="individual_game_screens.html" class="btn-primary">
+                    Back to Games
+                </a>
+                <a href="user_profile_dashboard.html" class="btn-secondary">
+                    View My Progress
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Settings Import Modal -->
+    <div id="importModal"
+        class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4"
+        role="dialog" aria-modal="true" aria-labelledby="import-modal-title">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h4 id="import-modal-title" class="text-xl font-opendyslexic font-bold text-text-primary">Import
+                        Settings</h4>
+                    <button id="closeImportModal" class="p-2 rounded-lg hover:bg-surface transition-colors focus-ring"
+                        aria-label="Close modal">
+                        <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label for="settingsFile"
+                            class="block text-sm font-nunito-sans font-semibold text-text-primary mb-2">
+                            Select Settings File
+                        </label>
+                        <input type="file" id="settingsFile" accept=".json"
+                            class="w-full px-3 py-2 border border-border rounded-lg focus-ring font-lexend">
+                    </div>
+                    <div class="flex space-x-3">
+                        <button id="importConfirm" class="btn-primary flex-1">
+                            Import Settings
+                        </button>
+                        <button id="cancelImport" class="btn-secondary">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuToggle').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+            updateThemeIcon(); // New line to switch icon
+        });
+
+        // Load saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark');
+        }
+
+        // Settings Management
+        class SettingsManager {
+            constructor() {
+                this.settings = this.loadSettings();
+                this.initializeControls();
+                this.bindEvents();
+            }
+
+            loadSettings() {
+                const defaultSettings = {
+                    theme: 'light',
+                    fontSize: 16,
+                    reducedMotion: false,
+                    enhancedFocus: true,
+                    masterVolume: 75,
+                    backgroundMusic: true,
+                    musicType: 'ambient',
+                    soundEffects: true,
+                    voiceGuidance: false,
+                    adaptiveDifficulty: 'automatic',
+                    hintFrequency: 3,
+                    celebrateProgress: true,
+                    timePressure: true,
+                    dataCollection: true,
+                    progressSharing: false
+                };
+
+                const saved = localStorage.getItem('mindbridge-settings');
+                return saved ? { ...defaultSettings, ...JSON.parse(saved) } : defaultSettings;
+            }
+
+            saveSettings() {
+                localStorage.setItem('mindbridge-settings', JSON.stringify(this.settings));
+                this.showSaveConfirmation();
+            }
+
+            initializeControls() {
+                // Theme selection
+                document.querySelectorAll('.theme-option').forEach(option => {
+                    option.classList.toggle('active', option.dataset.theme === this.settings.theme);
+                });
+
+                // Font size
+                const fontSizeSlider = document.getElementById('fontSize');
+                fontSizeSlider.value = this.settings.fontSize;
+                this.updateFontPreview(this.settings.fontSize);
+
+                // Toggle switches
+                const toggles = [
+                    'reducedMotion', 'enhancedFocus', 'backgroundMusic',
+                    'soundEffects', 'voiceGuidance', 'celebrateProgress',
+                    'timePressure', 'dataCollection', 'progressSharing'
+                ];
+
+                toggles.forEach(toggle => {
+                    const element = document.getElementById(toggle);
+                    if (element) {
+                        element.checked = this.settings[toggle];
+                    }
+                });
+
+                // Range inputs
+                document.getElementById('masterVolume').value = this.settings.masterVolume;
+                document.getElementById('hintFrequency').value = this.settings.hintFrequency;
+
+                // Select inputs
+                document.getElementById('adaptiveDifficulty').value = this.settings.adaptiveDifficulty;
+
+                // Radio buttons
+                const musicTypeRadio = document.querySelector(`input[name="musicType"][value="${this.settings.musicType}"]`);
+                if (musicTypeRadio) {
+                    musicTypeRadio.checked = true;
+                }
+
+                // Update displays
+                this.updateVolumeDisplay(this.settings.masterVolume);
+                this.updateHintDisplay(this.settings.hintFrequency);
+            }
+
+            bindEvents() {
+                // Theme selection
+                document.querySelectorAll('.theme-option').forEach(option => {
+                    option.addEventListener('click', () => {
+                        document.querySelectorAll('.theme-option').forEach(opt => opt.classList.remove('active'));
+                        option.classList.add('active');
+                        this.settings.theme = option.dataset.theme;
+                        this.applyTheme(option.dataset.theme);
+                        this.saveSettings();
+                    });
+                });
+
+                // Font size slider
+                document.getElementById('fontSize').addEventListener('input', (e) => {
+                    this.settings.fontSize = parseInt(e.target.value);
+                    this.updateFontPreview(this.settings.fontSize);
+                    this.saveSettings();
+                });
+
+                // Volume slider
+                document.getElementById('masterVolume').addEventListener('input', (e) => {
+                    this.settings.masterVolume = parseInt(e.target.value);
+                    this.updateVolumeDisplay(this.settings.masterVolume);
+                    this.saveSettings();
+                });
+
+                // Hint frequency slider
+                document.getElementById('hintFrequency').addEventListener('input', (e) => {
+                    this.settings.hintFrequency = parseInt(e.target.value);
+                    this.updateHintDisplay(this.settings.hintFrequency);
+                    this.saveSettings();
+                });
+
+                // Toggle switches
+                const toggles = [
+                    'reducedMotion', 'enhancedFocus', 'backgroundMusic',
+                    'soundEffects', 'voiceGuidance', 'celebrateProgress',
+                    'timePressure', 'dataCollection', 'progressSharing'
+                ];
+
+                toggles.forEach(toggle => {
+                    const element = document.getElementById(toggle);
+                    if (element) {
+                        element.addEventListener('change', (e) => {
+                            this.settings[toggle] = e.target.checked;
+                            this.saveSettings();
+                        });
+                    }
+                });
+
+                // Select inputs
+                document.getElementById('adaptiveDifficulty').addEventListener('change', (e) => {
+                    this.settings.adaptiveDifficulty = e.target.value;
+                    this.saveSettings();
+                });
+
+                // Radio buttons
+                document.querySelectorAll('input[name="musicType"]').forEach(radio => {
+                    radio.addEventListener('change', (e) => {
+                        this.settings.musicType = e.target.value;
+                        this.saveSettings();
+                    });
+                });
+
+                // Action buttons
+                document.getElementById('resetDefaults').addEventListener('click', () => this.resetToDefaults());
+                document.getElementById('exportSettings').addEventListener('click', () => this.exportSettings());
+                document.getElementById('importSettings').addEventListener('click', () => this.showImportModal());
+            }
+
+            updateFontPreview(size) {
+                const preview = document.getElementById('fontPreview');
+                preview.style.fontSize = `${size}px`;
+            }
+
+            updateVolumeDisplay(volume) {
+                document.getElementById('volumeDisplay').textContent = `${volume}%`;
+            }
+
+            updateHintDisplay(frequency) {
+                const labels = ['Independent', 'Minimal', 'Balanced', 'Helpful', 'Guided'];
+                document.getElementById('hintDisplay').textContent = labels[frequency - 1];
+            }
+
+            applyTheme(theme) {
+                document.body.className = document.body.className.replace(/theme-\w+/g, '');
+                document.body.classList.add(`theme-${theme}`);
+            }
+
+            showSaveConfirmation() {
+                // Create a temporary notification
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-4 right-4 bg-success text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fade-in';
+                notification.innerHTML = `
+                    <div class="flex items-center space-x-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="font-nunito-sans font-semibold">Settings saved!</span>
+                    </div>
+                `;
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            }
+
+            resetToDefaults() {
+                if (confirm('Are you sure you want to reset all settings to their default values? This action cannot be undone.')) {
+                    localStorage.removeItem('mindbridge-settings');
+                    location.reload();
+                }
+            }
+
+            exportSettings() {
+                const dataStr = JSON.stringify(this.settings, null, 2);
+                const dataBlob = new Blob([dataStr], { type: 'application/json' });
+                const url = URL.createObjectURL(dataBlob);
+
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'mindbridge-settings.json';
+                link.click();
+
+                URL.revokeObjectURL(url);
+            }
+
+            showImportModal() {
+                document.getElementById('importModal').classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            hideImportModal() {
+                document.getElementById('importModal').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+
+            importSettings(file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const importedSettings = JSON.parse(e.target.result);
+                        this.settings = { ...this.settings, ...importedSettings };
+                        this.saveSettings();
+                        this.initializeControls();
+                        this.hideImportModal();
+                        alert('Settings imported successfully!');
+                    } catch (error) {
+                        alert('Error importing settings. Please check the file format.');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        // Initialize settings manager
+        const settingsManager = new SettingsManager();
+
+        // Import modal functionality
+        document.getElementById('closeImportModal').addEventListener('click', () => {
+            settingsManager.hideImportModal();
+        });
+
+        document.getElementById('cancelImport').addEventListener('click', () => {
+            settingsManager.hideImportModal();
+        });
+
+        document.getElementById('importConfirm').addEventListener('click', () => {
+            const fileInput = document.getElementById('settingsFile');
+            if (fileInput.files.length > 0) {
+                settingsManager.importSettings(fileInput.files[0]);
+            } else {
+                alert('Please select a settings file to import.');
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('importModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                settingsManager.hideImportModal();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                settingsManager.hideImportModal();
+            }
+        });
+
+        // Add custom CSS for toggle switches
+        const style = document.createElement('style');
+        style.textContent = `
+            .toggle-switch {
+                position: relative;
+                display: inline-block;
+                width: 60px;
+                height: 34px;
+            }
+
+            .toggle-slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #E1E8ED;
+                transition: .4s;
+                border-radius: 34px;
+            }
+
+            .toggle-slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                transition: .4s;
+                border-radius: 50%;
+            }
+
+            input:checked + .toggle-slider {
+                background-color: #4A90E2;
+            }
+
+            input:checked + .toggle-slider:before {
+                transform: translateX(26px);
+            }
+
+            .theme-option {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 12px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                border: 2px solid transparent;
+            }
+
+            .theme-option:hover {
+                background-color: #F5F7FA;
+            }
+
+            .theme-option.active {
+                border-color: #4A90E2;
+                background-color: #EBF4FD;
+            }
+
+            .setting-group {
+                padding-bottom: 24px;
+                border-bottom: 1px solid #F0F3F6;
+            }
+
+            .setting-group:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            input[type="range"] {
+                background: linear-gradient(to right, #4A90E2 0%, #4A90E2 var(--value, 0%), #F5F7FA var(--value, 0%), #F5F7FA 100%);
+            }
+
+            input[type="range"]::-webkit-slider-thumb {
+                appearance: none;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                background: #4A90E2;
+                cursor: pointer;
+                border: 2px solid white;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+            input[type="range"]::-moz-range-thumb {
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                background: #4A90E2;
+                cursor: pointer;
+                border: 2px solid white;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Update range slider backgrounds
+        function updateRangeSlider(slider) {
+            const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+            slider.style.setProperty('--value', value + '%');
+        }
+
+        document.querySelectorAll('input[type="range"]').forEach(slider => {
+            updateRangeSlider(slider);
+            slider.addEventListener('input', () => updateRangeSlider(slider));
+        });
+    </script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+
+</html>

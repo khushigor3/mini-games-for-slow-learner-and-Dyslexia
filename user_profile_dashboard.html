@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindBridge Games - My Progress Dashboard</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <meta name="description"
+        content="Track your learning journey with personalized progress analytics, achievement recognition, and encouraging feedback designed for neurodivergent learners.">
+
+    <script type="module"
+        src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fmindbridge3329back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+    <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+</head>
+
+<body class="bg-background min-h-screen">
+    <nav class="bg-white border-b border-border shadow-gentle sticky top-0 z-50" role="navigation"
+        aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-opendyslexic font-bold text-text-primary"><a
+                                href="individual_game_screens.html">MindBridge Games</a></h1>
+                        <p class="text-xs text-text-secondary font-lexend">Learning Through Play</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+
+                    <button id="themeToggle"
+                        class="p-2 rounded-lg bg-surface hover:bg-border transition-colors focus-ring"
+                        aria-label="Toggle dark mode">
+                        <svg id="themeIconSVG" class="w-5 h-5 text-text-secondary" fill="currentColor"
+                            viewBox="0 0 24 24" aria-hidden="true">
+                            <path id="themeIconPath"
+                                d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
+                        </svg>
+                    </button>
+
+                    <div class="flex items-center space-x-4">
+                        <a href="user_profile_dashboard.html"
+                            class="text-text-secondary hover:text-primary font-nunito-sans font-medium px-3 py-2 rounded-lg hover:bg-primary-50 transition-colors focus-ring">
+                            My Progress
+                        </a>
+                        <a href="settings_panel.html"
+                            class="text-text-secondary hover:text-primary font-nunito-sans font-medium px-3 py-2 rounded-lg hover:bg-primary-50 transition-colors focus-ring">
+                            Settings
+                        </a>
+                    </div>
+
+                    <button id="mobileMenuToggle"
+                        class="md:hidden p-2 rounded-lg bg-surface hover:bg-border transition-colors focus-ring"
+                        aria-label="Open mobile menu">
+                        <svg class="w-5 h-5 text-text-secondary" fill="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path d="M3 12h18m-9-9v18" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-border">
+            <div class="px-4 py-3 space-y-2">
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section class="mb-12" aria-labelledby="dashboard-heading">
+            <div class="text-center mb-8">
+                <h2 id="dashboard-heading" class="text-4xl font-opendyslexic font-bold text-text-primary mb-4">
+                    Your Amazing Journey! 🌟
+                </h2>
+                <p class="text-lg text-text-secondary font-lexend max-w-2xl mx-auto leading-relaxed">
+                    Look how far you've come! Every game you play makes your unique mind even stronger.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-12" aria-labelledby="overview-heading">
+            <h3 id="overview-heading" class="text-2xl font-opendyslexic font-bold text-text-primary mb-6">
+                Your Progress Highlights
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl p-6 border border-border shadow-gentle text-center">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-success-600" fill="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <p class="text-3xl font-opendyslexic font-bold text-text-primary mb-2">24</p>
+                    <p class="text-sm text-text-secondary font-lexend mb-2">Games Completed</p>
+                    <div class="w-full bg-surface rounded-full h-2">
+                        <div class="bg-success h-2 rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border border-border shadow-gentle text-center">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-accent-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <p class="text-3xl font-opendyslexic font-bold text-text-primary mb-2">5</p>
+                    <p class="text-sm text-text-secondary font-lexend mb-2">Day Streak</p>
+                    <div class="w-full bg-surface rounded-full h-2">
+                        <div class="bg-accent h-2 rounded-full" style="width: 71%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border border-border shadow-gentle text-center">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-secondary-600" fill="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path
+                                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                        </svg>
+                    </div>
+                    <p class="text-3xl font-opendyslexic font-bold text-text-primary mb-2">8</p>
+                    <p class="text-sm text-text-secondary font-lexend mb-2">Achievements</p>
+                    <div class="w-full bg-surface rounded-full h-2">
+                        <div class="bg-secondary h-2 rounded-full" style="width: 67%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border border-border shadow-gentle text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                    </div>
+                    <p class="text-3xl font-opendyslexic font-bold text-text-primary mb-2">12h</p>
+                    <p class="text-sm text-text-secondary font-lexend mb-2">Time Played</p>
+                    <div class="w-full bg-surface rounded-full h-2">
+                        <div class="bg-primary h-2 rounded-full" style="width: 60%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12" aria-labelledby="charts-heading">
+            <h3 id="charts-heading" class="text-2xl font-opendyslexic font-bold text-text-primary mb-6">
+                Your Learning Journey
+            </h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl p-6 border border-border shadow-gentle">
+                    <div class="flex items-center justify-between mb-6">
+                        <h4 class="text-lg font-opendyslexic font-bold text-text-primary">Weekly Progress</h4>
+                        <button
+                            class="text-sm text-primary hover:text-primary-600 font-nunito-sans font-medium focus-ring">
+                            View Details
+                        </button>
+                    </div>
+                    <div class="h-64 flex items-end justify-between space-x-2" role="img"
+                        aria-label="Weekly progress chart showing daily game completion">
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="w-8 bg-primary-200 rounded-t" style="height: 60px"></div>
+                            <span class="text-xs text-text-secondary font-lexend">Mon</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="w-8 bg-primary-400 rounded-t" style="height: 80px"></div>
+                            <span class="text-xs text-text-secondary font-lexend">Tue</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="w-8 bg-primary-300 rounded-t" style="height: 45px"></div>
+                            <span class="text-xs text-text-secondary font-lexend">Wed</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="w-8 bg-primary-500 rounded-t" style="height: 95px"></div>
+                            <span class="text-xs text-text-secondary font-lexend">Thu</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="w-8 bg-primary-400 rounded-t" style="height: 75px"></div>
+                            <span class="text-xs text-text-secondary font-lexend">Fri</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="w-8 bg-primary-600 rounded-t" style="height: 110px"></div>
+                            <span class="text-xs text-text-secondary font-lexend">Sat</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="w-8 bg-primary-300 rounded-t" style="height: 55px"></div>
+                            <span class="text-xs text-text-secondary font-lexend">Sun</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-text-secondary font-lexend mt-4 text-center">
+                        Great consistency this week! You played games on 6 out of 7 days. 🎉
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border border-border shadow-gentle">
+                    <div class="flex items-center justify-between mb-6">
+                        <h4 class="text-lg font-opendyslexic font-bold text-text-primary">Skills Development</h4>
+                        <button
+                            class="text-sm text-primary hover:text-primary-600 font-nunito-sans font-medium focus-ring">
+                            Export Report
+                        </button>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-nunito-sans font-medium text-text-primary">Memory &
+                                    Focus</span>
+                                <span class="text-sm text-text-secondary font-lexend">92%</span>
+                            </div>
+                            <div class="w-full bg-surface rounded-full h-3">
+                                <div class="bg-success h-3 rounded-full transition-all duration-500" style="width: 92%">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-nunito-sans font-medium text-text-primary">Pattern
+                                    Recognition</span>
+                                <span class="text-sm text-text-secondary font-lexend">88%</span>
+                            </div>
+                            <div class="w-full bg-surface rounded-full h-3">
+                                <div class="bg-secondary h-3 rounded-full transition-all duration-500"
+                                    style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-nunito-sans font-medium text-text-primary">Language
+                                    Skills</span>
+                                <span class="text-sm text-text-secondary font-lexend">85%</span>
+                            </div>
+                            <div class="w-full bg-surface rounded-full h-3">
+                                <div class="bg-accent h-3 rounded-full transition-all duration-500" style="width: 85%">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-nunito-sans font-medium text-text-primary">Problem
+                                    Solving</span>
+                                <span class="text-sm text-text-secondary font-lexend">79%</span>
+                            </div>
+                            <div class="w-full bg-surface rounded-full h-3">
+                                <div class="bg-primary h-3 rounded-full transition-all duration-500" style="width: 79%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-text-secondary font-lexend mt-4 text-center">
+                        Your memory skills are exceptional! Keep practicing problem-solving games to boost that area
+                        too.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12" aria-labelledby="stats-heading">
+            <h3 id="stats-heading" class="text-2xl font-opendyslexic font-bold text-text-primary mb-6">
+                Game Performance Details
+            </h3>
+            <div class="bg-white rounded-xl border border-border shadow-gentle overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full" role="table" aria-label="Game performance statistics">
+                        <thead class="bg-surface">
+                            <tr>
+                                <th
+                                    class="px-6 py-4 text-left text-sm font-nunito-sans font-semibold text-text-primary">
+                                    Game</th>
+                                <th
+                                    class="px-6 py-4 text-center text-sm font-nunito-sans font-semibold text-text-primary">
+                                    Attempts</th>
+                                <th
+                                    class="px-6 py-4 text-center text-sm font-nunito-sans font-semibold text-text-primary">
+                                    Completed</th>
+                                <th
+                                    class="px-6 py-4 text-center text-sm font-nunito-sans font-semibold text-text-primary">
+                                    Success Rate</th>
+                                <th
+                                    class="px-6 py-4 text-center text-sm font-nunito-sans font-semibold text-text-primary">
+                                    Best Score</th>
+                                <th
+                                    class="px-6 py-4 text-center text-sm font-nunito-sans font-semibold text-text-primary">
+                                    Progress</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-border">
+                            <tr class="hover:bg-surface transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-3">
+                                        <img src="https://images.unsplash.com/photo-1652350934283-13d93a089941"
+                                            alt="Memory Match game icon showing colorful cards"
+                                            class="w-10 h-10 rounded-lg object-cover"
+                                            onerror="this.src='https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;">
+                                        <div>
+                                            <p class="font-nunito-sans font-medium text-text-primary">Memory Match</p>
+                                            <p class="text-xs text-text-secondary font-lexend">Visual Memory</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center text-sm font-lexend text-text-primary">12</td>
+                                <td class="px-6 py-4 text-center text-sm font-lexend text-text-primary">11</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span
+                                        class="inline-flex items-center px-2 py-1 rounded-full text-xs font-comfortaa bg-success-100 text-success-700">
+                                        92%
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-center text-sm font-lexend text-text-primary">2,450</td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="w-16 bg-surface rounded-full h-2 mx-auto">
+                                        <div class="bg-success h-2 rounded-full" style="width: 92%"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-surface transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-3">
+                                        <img src="https://images.unsplash.com/photo-1649949478498-25f47b92c3e1"
+                                            alt="Word Builder game icon showing letter blocks"
+                                            class="w-10 h-10 rounded-lg object-cover"
+                                            onerror="this.src='https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                        <div>
+                                            <p class="font-nunito-sans font-medium text-text-primary">Word Builder</p>
+                                            <p class="text-xs text-text-secondary font-lexend">Language Skills</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center text-sm font-lexend text-text-primary">8</td>
+                                <td class="px-6 py-4 text-center text-sm font-lexend text-text-primary">7</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span
+                                        class="inline-flex items-center px-2 py-1 rounded-full text-xs font-comfortaa bg-success-100 text-success-700">
+                                        88%
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-center text-sm font-lexend text-text-primary">1,890</td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="w-16 bg-surface rounded-full h-2 mx-auto">
+                                        <div class="bg-secondary h-2 rounded-full" style="width: 88%"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-surface transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-3">
+                                        <img src="https://images.unsplash.com/photo-1612386649465-5afc2ef04bc1"
+                                            alt="Pattern Puzzle game icon showing geometric shapes"
+                                            class="w-10 h-10 rounded-lg object-cover"
+                                            onerror="this.src='https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                        <div>
+                                            <p class="font-nunito-sans font-medium text-text-primary">Pattern Puzzle</p>
+                                            <p class="text-xs text-text-secondary font-lexend">Logic & Reasoning</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center text-sm font-lexend text-text-primary">6</td>
+                                <td class="px-6 py-4 text-center text-sm font-lexend text-text-primary">5</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span
+                                        class="inline-flex items-center px-2 py-1 rounded-full text-xs font-comfortaa bg-warning-100 text-warning-700">
+                                        83%
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-center text-sm font-lexend text-text-primary">1,650</td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="w-16 bg-surface rounded-full h-2 mx-auto">
+                                        <div class="bg-accent h-2 rounded-full" style="width: 83%"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-surface transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-3">
+                                        <img src="https://images.unsplash.com/photo-1653080583950-984032da0063"
+                                            alt="Number Sequence game icon showing mathematical symbols"
+                                            class="w-10 h-10 rounded-lg object-cover"
+                                            onerror="this.src='https://images.pixabay.com/photo/2016/03/26/13/09/workspace-1280538_1280.jpg'; this.onerror=null;">
+                                        <div>
+                                            <p class="font-nunito-sans font-medium text-text-primary">Number Sequence
+                                            </p>
+                                            <p class="text-xs text-text-secondary font-lexend">Math Skills</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center text-sm font-lexend text-text-primary">4</td>
+                                <td class="px-6 py-4 text-center text-sm font-lexend text-text-primary">3</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span
+                                        class="inline-flex items-center px-2 py-1 rounded-full text-xs font-comfortaa bg-warning-100 text-warning-700">
+                                        75%
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-center text-sm font-lexend text-text-primary">1,200</td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="w-16 bg-surface rounded-full h-2 mx-auto">
+                                        <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12" aria-labelledby="achievements-heading">
+            <h3 id="achievements-heading" class="text-2xl font-opendyslexic font-bold text-text-primary mb-6">
+                Your Achievement Gallery
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div
+                    class="bg-white rounded-xl p-6 border border-border shadow-gentle text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-success-600" fill="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-opendyslexic font-bold text-text-primary mb-2">First Victory</h4>
+                    <p class="text-sm text-text-secondary font-lexend mb-3">Completed your very first game!</p>
+                    <span class="text-xs text-success-600 font-comfortaa bg-success-50 px-2 py-1 rounded-full">
+                        Earned Oct 15, 2025
+                    </span>
+                </div>
+
+                <div
+                    class="bg-white rounded-xl p-6 border border-border shadow-gentle text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-accent-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-opendyslexic font-bold text-text-primary mb-2">Speed Demon</h4>
+                    <p class="text-sm text-text-secondary font-lexend mb-3">Completed a game in under 2 minutes!</p>
+                    <span class="text-xs text-accent-600 font-comfortaa bg-accent-50 px-2 py-1 rounded-full">
+                        Earned Oct 18, 2025
+                    </span>
+                </div>
+
+                <div
+                    class="bg-white rounded-xl p-6 border border-border shadow-gentle text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-secondary-600" fill="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path
+                                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-opendyslexic font-bold text-text-primary mb-2">Pattern Master</h4>
+                    <p class="text-sm text-text-secondary font-lexend mb-3">Solved 10 pattern puzzles in a row!</p>
+                    <span class="text-xs text-secondary-600 font-comfortaa bg-secondary-50 px-2 py-1 rounded-full">
+                        Earned Oct 22, 2025
+                    </span>
+                </div>
+
+                <div
+                    class="bg-white rounded-xl p-6 border border-border shadow-gentle text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-opendyslexic font-bold text-text-primary mb-2">Consistent Player</h4>
+                    <p class="text-sm text-text-secondary font-lexend mb-3">Played games for 5 days straight!</p>
+                    <span class="text-xs text-primary-600 font-comfortaa bg-primary-50 px-2 py-1 rounded-full">
+                        Earned Oct 25, 2025
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12" aria-labelledby="export-heading">
+            <h3 id="export-heading" class="text-2xl font-opendyslexic font-bold text-text-primary mb-6">
+                Share Your Progress
+            </h3>
+            <div class="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-xl p-8 border border-primary-200">
+                <div class="text-center">
+                    <h4 class="text-xl font-opendyslexic font-bold text-text-primary mb-4">
+                        Show Off Your Amazing Progress! 🎉
+                    </h4>
+                    <p class="text-text-secondary font-lexend mb-6 max-w-2xl mx-auto">
+                        Share your learning journey with teachers, parents, or friends. Your progress shows how your
+                        unique mind is growing stronger every day!
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="btn-primary" onclick="exportProgress()">
+                            📊 Export Progress Report
+                        </button>
+                        <button class="btn-secondary" onclick="shareAchievements()">
+                            🏆 Share Achievements
+                        </button>
+                        <a href="individual_game_screens.html"
+                            class="btn-primary bg-accent hover:bg-accent-600 focus:ring-accent-300">
+                            🎮 Continue Playing
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuToggle').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+            updateThemeIcon(); // New line to switch icon
+        });
+
+        // Progress animation on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const progressBars = document.querySelectorAll('[style*="width:"]');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        });
+
+        // Export progress functionality
+        function exportProgress() {
+            const progressData = {
+                user: 'Alex Chen',
+                level: 'Level 3 Explorer',
+                gamesCompleted: 24,
+                achievements: 8,
+                dayStreak: 5,
+                totalTime: '12 hours',
+                skills: {
+                    memory: 92,
+                    patterns: 88,
+                    language: 85,
+                    problemSolving: 79
+                },
+                gameStats: [
+                    { name: 'Memory Match', attempts: 12, completed: 11, successRate: 92, bestScore: 2450 },
+                    { name: 'Word Builder', attempts: 8, completed: 7, successRate: 88, bestScore: 1890 },
+                    { name: 'Pattern Puzzle', attempts: 6, completed: 5, successRate: 83, bestScore: 1650 },
+                    { name: 'Number Sequence', attempts: 4, completed: 3, successRate: 75, bestScore: 1200 }
+                ],
+                exportDate: new Date().toLocaleDateString()
+            };
+
+            // Create downloadable report
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(progressData, null, 2));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", "mindbridge-progress-report.json");
+            document.body.appendChild(downloadAnchorNode);
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+
+            // Show success message
+            showNotification('Progress report exported successfully! 📊', 'success');
+        }
+
+        // Share achievements functionality
+        function shareAchievements() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'My MindBridge Games Achievements',
+                    text: 'Check out my learning progress! I\'ve completed 24 games and earned 8 achievements on MindBridge Games! 🎉',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const shareText = 'Check out my learning progress! I\'ve completed 24 games and earned 8 achievements on MindBridge Games! 🎉';
+                navigator.clipboard.writeText(shareText).then(() => {
+                    showNotification('Achievement text copied to clipboard! 🏆', 'success');
+                });
+            }
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 transition-all duration-300 transform translate-x-full`;
+
+            const bgColor = type === 'success' ? 'bg-success-100 border-success-200 text-success-700' :
+                type === 'error' ? 'bg-error-100 border-error-200 text-error-700' :
+                    'bg-primary-100 border-primary-200 text-primary-700';
+
+            notification.className += ` ${bgColor} border`;
+            notification.innerHTML = `
+                <div class="flex items-center space-x-3">
+                    <span class="font-lexend">${message}</span>
+                    <button onclick="this.parentElement.parentElement.remove()" class="text-current hover:opacity-70">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 5000);
+        }
+
+        // Save user activity
+        function saveActivity(activity) {
+            const activities = JSON.parse(localStorage.getItem('userActivities') || '[]');
+            activities.unshift({
+                ...activity,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('userActivities', JSON.stringify(activities.slice(0, 20)));
+        }
+
+        // Load and display user progress from localStorage
+        function loadUserProgress() {
+            const progress = JSON.parse(localStorage.getItem('userProgress') || '{}');
+            return {
+                gamesCompleted: progress.gamesCompleted || 24,
+                achievements: progress.achievements || 8,
+                dayStreak: progress.dayStreak || 5,
+                totalTime: progress.totalTime || '12h',
+                skills: progress.skills || {
+                    memory: 92,
+                    patterns: 88,
+                    language: 85,
+                    problemSolving: 79
+                }
+            };
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function () {
+            const progress = loadUserProgress();
+
+            // Save current visit
+            saveActivity({
+                type: 'dashboard_visit',
+                description: 'Viewed progress dashboard'
+            });
+
+            console.log('Dashboard loaded with progress:', progress);
+        });
+
+        // Keyboard navigation for interactive elements
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                // Close any open modals or notifications
+                const notifications = document.querySelectorAll('.fixed.top-4.right-4');
+                notifications.forEach(notification => notification.remove());
+            }
+        });
+
+        // Accessibility: Focus management
+        const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+        const modal = document.querySelector('[role="dialog"]');
+
+        if (modal) {
+            const firstFocusableElement = modal.querySelectorAll(focusableElements)[0];
+            const focusableContent = modal.querySelectorAll(focusableElements);
+            const lastFocusableElement = focusableContent[focusableContent.length - 1];
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusableElement) {
+                            lastFocusableElement.focus();
+                            e.preventDefault();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusableElement) {
+                            firstFocusableElement.focus();
+                            e.preventDefault();
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+
+</html>
